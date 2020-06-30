@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <form class="pa3 bg-light-gray ba ba--light-gray br3 w-25" action="{% url 'add_album' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div>
+            <button class="bg-light-gray br2" type="submit">Add Album</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

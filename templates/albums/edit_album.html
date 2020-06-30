@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <form class="pa3 bg-near-white ba ba--light-gray br3 w-25" action="{% url 'edit_album' pk=album.pk %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div>
+            <button class="bg-light-gray br2" type="submit">Update Album</button><br><br>
+            <button class="bg-light-gray br2" onclick="event.preventDefault();location.href='{% url 'list_albums' %}'">Cancel</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

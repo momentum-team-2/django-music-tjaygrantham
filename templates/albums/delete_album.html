@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <form class="pa3 bg-near-white ba ba--light-gray br3 w-25" action="{% url 'delete_album' pk=album.pk %}" method="POST">
+        {% csrf_token %}
+        <p>Are you sure you want to delete {{ album.title }} by {{ album.artist }}?</p>
+        <div>
+            <button class="bg-light-gray br2" type="submit">Delete Album</button><br><br>
+            <button class="bg-light-gray br2" onclick="event.preventDefault();location.href='{% url 'list_albums' %}'">Cancel</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

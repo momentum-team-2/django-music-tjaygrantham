@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load mytags %}
+
+{% block content %}
+<a href="{% url 'add_album' %}"><h1>+ Add Album</h1></a>
+<div class="flex flex-wrap items-center justify-left ml4">
+{% for album in albums %}
+    <div style="background-color: {{ album.colors|loadjson|index:0 }};" class="flex-item album-card ma3 pa3 bg-near-white ba ba--light-gray br3">
+        <a href="{% url 'show_album' pk=album.pk %}"><img src="{{ album.artworkURL }}"></a>
+        <a style="color: {{ album.colors|loadjson|index:1 }};" href="{% url 'show_album' pk=album.pk %}"><h3>{{ album.title }}</h3></a>
+        <p style="color: {{ album.colors|loadjson|index:2 }};">{{ album.artist }}</p>
+        <p style="color: {{ album.colors|loadjson|index:3 }};">{{ album.year }}</p><br>
+        <button style="background-color: {{ album.colors|loadjson|index:4 }};" class="bg-light-gray br2" onclick="location.href='{% url 'edit_album' pk=album.pk %}'">Edit Album</button><br><br>
+        <button style="background-color: {{ album.colors|loadjson|index:4 }};" class="bg-light-gray red br2" onclick="location.href='{% url 'delete_album' pk=album.pk %}'">Delete Album</button>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

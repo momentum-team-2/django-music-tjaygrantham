@@ -1,0 +1,16 @@
+* {
+    margin: 5% auto;
+}
+
+h1 {
+    margin-left: 2%;
+}
+
+.flex-item {
+    min-width: 300px;
+    max-width: 300px;
+}
+
+img {
+    width: 300px;
+}

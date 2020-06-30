@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load mytags %}
+
+{% block content %}
+<a href="{% url 'list_albums' %}"><h1>&lt; Back to Albums</h1></a>
+<div class="flex items-center justify-center w-30">
+<div class="flex-item album-card pa3 ba ba--light-gray br3" style="background-color: {{ album.colors|loadjson|index:0 }};">
+        <img src={{ album.artworkURL }}>
+        <h3 style="color: {{ album.colors|loadjson|index:1 }};">{{ album.title }}</h3>
+        <p style="color: {{ album.colors|loadjson|index:2 }};">{{ album.artist }}</p>
+        <p style="color: {{ album.colors|loadjson|index:3 }};">{{ album.year }}</p>
+    </div>
+</div>
+{% endblock %}
